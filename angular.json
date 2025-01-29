@@ -37,12 +37,20 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/cyan-orange.css",
+              "node_modules/primeflex/primeflex.min.css",
               "src/styles.css"
             ],
             "scripts": []
           },
           "configurations": {
             "production": {
+              "fileReplacements":[
+                {
+                  "replace": "src/enviroments/enviroments.ts",
+                  "with": "src/enviroments/enviroments.prod.ts"
+                }
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -95,6 +103,7 @@
               }
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/cyan-orange.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -102,5 +111,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "edaa0616-abf9-430d-a7e1-cef69ad0790e"
   }
 }
