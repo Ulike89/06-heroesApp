@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AuthMicrosoftService } from './auth/services/auth.microsoft-service';
 
 @Component({
   selector: 'app-root',

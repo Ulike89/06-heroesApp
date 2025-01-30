@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../../auth/services/auth.service';
+import { AuthMicrosoftService } from '../../../auth/services/auth.microsoft-service';
 import { Router } from '@angular/router';
 import { User } from '../../../auth/interfaces/user.interface';
 
@@ -18,12 +18,20 @@ export class LayoutPageComponent {
   ]
 
   constructor(
-    private authService: AuthService,
+    private authService: AuthMicrosoftService,
     private router: Router
   ) {}
 
   get user():User | undefined {
-    return this.authService.currentUser;
+    const user = this.authService.getUser();
+    if (user){
+      return {
+        id:    0,
+        user:  user,
+        email: user
+      };
+    }
+    return undefined;
   }
 
   onLogout() {

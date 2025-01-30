@@ -1,4 +1,4 @@
-<div class="flex flex-column" [formGroup]="userForm">
+<!-- <div class="flex flex-column" [formGroup]="userForm">
   <span class="text-lg mb-4">Login</span>
     
   <mat-form-field>
@@ -13,10 +13,17 @@
   
   <button mat-button mat-flat-button color="primary" (click)="onLogin()">
     <mat-icon>login</mat-icon>
-    Ingresar
+    Iniciar sesión con Microsoft
   </button>  
   
   <div class="flex justify-content-end mt-5">
     <a routerLink="/auth/new-account">¿No tienes cuenta?</a>
   </div>  
+</div> -->
+
+<div class="flex flex-column">
+  <button mat-button mat-flat-button color="primary" (click)="onLogin()">
+    <mat-icon>login</mat-icon>
+    Iniciar sesión con Microsoft
+  </button>  
 </div>

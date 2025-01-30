@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
 import { FormControl, FormGroup } from '@angular/forms';
+import { AuthMicrosoftService } from '../../services/auth.microsoft-service';
 
 @Component({
   selector: 'app-login-page',
   standalone: false,
-  
   templateUrl: './login-page.component.html',
   styles: ``
 })
@@ -17,15 +16,20 @@ export class LoginPageComponent {
     });
 
   constructor(
-    private authService: AuthService,
+    private authService: AuthMicrosoftService,
     private router: Router
   ){}
 
   onLogin(): void {
-    if ( this.userForm.invalid ) return;
-    this.authService.login(this.userForm.value.user!,this.userForm.value.password!)
-    .subscribe( user => {
-      this.router.navigate(['/']);
-    });
+    // if ( this.userForm.invalid ) return;
+    // this.authService.login(this.userForm.value.user!,this.userForm.value.password!)
+    // .subscribe( user => {
+    //   this.router.navigate(['/']);
+    // });
+    if (this.authService.isAuthenticated()){
+      this.authService.login()
+    };
+    
+    this.router.navigate(['/'])
   }
 }
