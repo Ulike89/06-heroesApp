@@ -26,7 +26,7 @@ export class LoginPageComponent {
     // .subscribe( user => {
     //   this.router.navigate(['/']);
     // });
-    if (this.authService.isAuthenticated()){
+    if (!this.authService.isAuthenticated()){
       this.authService.login()
     };
     

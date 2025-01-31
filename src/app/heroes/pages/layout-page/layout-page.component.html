@@ -24,8 +24,9 @@
         <mat-icon>menu</mat-icon>
       </button>  
       <span class="spacer"></span>
-      <span>{{user?.user}}</span>
+      <span *ngIf="user">Bienvenido {{user.user}}</span>
       <button mat-button (click)="onLogout()">
+        <mat-icon>logout</mat-icon>
         Cerrar sesion
       </button>
     </mat-toolbar>

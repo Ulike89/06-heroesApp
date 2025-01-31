@@ -16,11 +16,14 @@ export class AuthMicrosoftService {
   }
 
   getUser() {
-    const account = this.msalService.instance.getActiveAccount();
-    return account ? account.username : null;
+    const accounts = this.msalService.instance.getAllAccounts();
+    if (accounts.length > 0) {
+      return accounts[0].name;
+      }
+      return null;
   }
 
   isAuthenticated(): boolean {
-    return this.msalService.instance.getActiveAccount() !== null;
+    return this.msalService.instance.getAllAccounts().length > 0;
   }
 }
